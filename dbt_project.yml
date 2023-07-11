@@ -34,4 +34,7 @@ models:
   dbt_snowflake2:
     # Config indicated by + and applies to all files under models/example/
     example:
-      +materialized: view
+      materialized: view
+      dir2:
+        materialized: table
+    materialized: table
