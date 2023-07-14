@@ -4,7 +4,7 @@
     )
 }}
 
-with t052 as(
+with t052_new as(
     select 
     currency,
     case
@@ -13,7 +13,7 @@ with t052 as(
     end as index
     ,
     currencyid
-from SNEAKERFACTORY.BRONZE.t052
+from SNEAKERFACTORY.bronze.t052
 
 union
 
@@ -22,4 +22,4 @@ select
     'ST05' as index,
     'CHF' as currencyid
 )
-select * from t052
+select * from t052_new

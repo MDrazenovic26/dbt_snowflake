@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: KNA1
+  - name: kna
     columns:
     - name: index
       tests:
@@ -21,3 +21,10 @@ models:
       tests:
         - unique
         - not_null
+  
+  - name: vbrk
+    columns:
+    - name: fakty
+      tests:
+        - accepted_values:
+            values: ['Return','Sale']
