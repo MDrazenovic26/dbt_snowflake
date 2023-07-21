@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: lips_example
+    columns:
+    - name: index
+      tests:
+        - unique
+        - not_null      
