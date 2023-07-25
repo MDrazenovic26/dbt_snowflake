@@ -17,14 +17,14 @@ team_locations as(
 final as (
 
     select
-        teams.team,
-        team_locations.city,
-        team_locations.state
+        ts.team,
+        tl.city,
+        tl.state
 
-    from teams
+    from teams as ts
 
-    left join team_locations
-        on team_locations.name = teams.team
+    left join team_locations as tl
+        on tl.name = ts.team
 
 )
 

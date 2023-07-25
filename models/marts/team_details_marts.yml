@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: lips_dedupl
+    description: '{{ doc("table_events") }}'
+    columns:
+    - name: vbeln
+      tests:
+        - not_null

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: example_teams
+    columns:
+    - name: team
+      description: '{{ doc("team_details_team_city") }}'
+      tests:
+        - not_null
