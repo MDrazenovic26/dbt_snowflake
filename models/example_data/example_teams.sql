@@ -1,32 +1,37 @@
 {{
-    config( schema='example_schema', materialized = 'table' )
+    config( materialized = 'table' )
 }}
 
 with teams as (
 
     select
-        'Lakers' as team
+        'Lakers' as team, cast('2023-07-25 17:10:00' as timestamp) AS data_created
 
     union all
 
     select
-        'Clippers' as team
+        'Clippers' as team, cast('2023-07-25 17:10:00' as timestamp) AS data_created
 
     union all
 
     select
-        '76ers' as team
+        '76ers' as team, cast('2023-07-25 17:10:00' as timestamp) AS data_created
 
     union all
 
     select
-        'Heat' as team
+        'Heat' as team, cast('2023-07-25 17:10:00' as timestamp) AS data_created
 
     union all
 
     select
-        'Bulls' as team
+        'Bulls' as team, cast('2023-07-25 17:10:00' as timestamp) AS data_created
+    
+    union all
+
+    select
+        'Thunders' as team, cast('2023-07-25 17:10:00' as timestamp) AS data_created
 
 )
 
-select * from teams
+select *, '{{ invocation_id }}' as invocation_id from teams

@@ -4,8 +4,25 @@ sources:
   - name: snf_example
     database: SNEAKERFACTORY  
     description: This is a source for bronze shcema, untransformed data
-    schema: bronze  
+    schema: EXAMPLE_SCHEMA  
     tables:
       - name: lips
       - name: tcurc
+      - name: team_details
+        freshness:
+          warn_after: { count: 2, period: minute}
+          error_after: {count: 5, period: minute}
+         # filter: datediff('minute',DATA_LOADED,current_timestamp)<530
+
+        loaded_at_field: "convert_timezone('America/Los_Angeles', 'UTC', DATA_LOADED)"
+      
+      - name: example_teams
+        columns:
+        - name: team
+        - name: DATA_CREATED
+        freshness:
+          warn_after: { count: 5, period: minute}
+          error_after: {count: 10, period: minute}
+
+        loaded_at_field: "convert_timezone('America/Los_Angeles', 'UTC', DATA_CREATED)"
       
